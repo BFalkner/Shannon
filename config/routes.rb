@@ -1,6 +1,7 @@
 Shannon::Application.routes.draw do
   get "/" => "gallery#index"
-  get "/:id" => "gallery#show"
+
+  resources :photosets, :only => [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
