@@ -1,1 +1,8 @@
-<h1>Welcome to SproutCore!</h1>
+{{#view App.Photoset}}
+  <div id="title">{{content.title}}</div>
+  <div id="description">{{content.description}}</div>
+{{/view}}
+
+{{#collection contentBinding="App.photosetsController" itemViewClass="App.PhotosetSelect"}}
+  <img {{bindAttr src="content.thumbnailUrl"}} />
+{{/collection}}
