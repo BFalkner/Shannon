@@ -15,7 +15,7 @@ Gallery.Photoset = SC.Object.extend({
         var photos = data.photos.map(function(photo){
           return Gallery.Photo.create({
             url: photo.url,
-            thumbnailUrl: photo.thumbnailUrl
+            thumbnailUrl: photo.thumbnail_url
           });
         });
         self.set("photos", photos);

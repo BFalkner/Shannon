@@ -17,10 +17,12 @@ class PhotosetsController < ApplicationController
   def show
     respond_to do |format|
       format.json do
-        render :json => {:photos => [
-          {:url => "", :thumbnailUrl => "http://farm7.static.flickr.com/6040/6278915164_7c1b91d40f_s.jpg"},
-          {:url => "", :thumbnailUrl => "http://farm7.static.flickr.com/6040/6278915164_7c1b91d40f_s.jpg"}
-        ]}
+        render :json => {
+            :id => params[:id],
+            :photos => (flickr.photosets.getPhotos(:photoset_id => params[:id], :extras => "url_s,url_o")["photo"]
+                          .map do |photo|
+              {:url => photo["url_o"], :thumbnail_url => photo["url_s"]}
+            end)}
       end
     end
   end
