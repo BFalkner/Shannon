@@ -4,7 +4,7 @@
 //= require_tree "./controllers"
 //= require_tree "./views"
 
-var App = SC.Application.create({
+var Gallery = SC.Application.create({
   ready: function(){
     this._super();
     this.fetchPhotosets();
@@ -13,16 +13,16 @@ var App = SC.Application.create({
   fetchPhotosets: function(){
     $.ajax('/photosets.json', {
       success: function(data){
-        App.photosetsController.beginPropertyChanges();
+        Gallery.PhotosetsController.beginPropertyChanges();
         data.forEach(function(set){
-          App.photosetsController.pushObject(App.Photoset.create({
+          Gallery.PhotosetsController.pushObject(Gallery.Photoset.create({
             id: set.id,
             title: set.title,
             description: set.description,
             thumbnailUrl: set.thumbnailUrl
           }));
         });
-        App.photosetsController.endPropertyChanges();
+        Gallery.PhotosetsController.endPropertyChanges();
       },
       error: function(response, status, error){
         console.error(status, error, response.responseText);
