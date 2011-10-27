@@ -11,22 +11,10 @@ var Gallery = SC.Application.create({
   },
 
   fetchPhotosets: function(){
-    $.ajax('/photosets.json', {
-      success: function(data){
-        Gallery.PhotosetsController.beginPropertyChanges();
-        data.forEach(function(set){
-          Gallery.PhotosetsController.pushObject(Gallery.Photoset.create({
-            id: set.id,
-            title: set.title,
-            description: set.description,
-            thumbnailUrl: set.thumbnailUrl
-          }));
-        });
-        Gallery.PhotosetsController.endPropertyChanges();
-      },
-      error: function(response, status, error){
-        console.error(status, error, response.responseText);
-      }
+    Gallery.Photoset.fetch(function(photosets) {
+      Gallery.PhotosetsController.beginPropertyChanges();
+      Gallery.PhotosetsController.pushObjects(photosets);
+      Gallery.PhotosetsController.endPropertyChanges();
     });
   }
 });

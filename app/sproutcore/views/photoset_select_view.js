@@ -2,7 +2,7 @@ Gallery.PhotosetSelectView = SC.View.extend({
   templateName: 'photoset-select',
 
   click: function() {
-    Gallery.PhotosetsController.set('selected', this.get("content"));
+    Gallery.PhotosetsController.select(this.get("content"));
   },
 
   thumbnailUrl: function() {

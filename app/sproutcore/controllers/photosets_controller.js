@@ -15,6 +15,10 @@ Gallery.PhotosetsController = SC.ArrayProxy.create({
     this.set("page", this.get("page") - 1)
   },
 
+  select: function(photoset) {
+    this.set("selected", photoset);
+  },
+
   _load_current_page: function() {
     var begin = this.get("page") * this.get("per_page");
     var end = begin + this.get("per_page");
