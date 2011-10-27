@@ -1,9 +1,9 @@
+//= require ./photosets_controller
 
-Gallery.PhotosetsController = SC.ArrayProxy.create({
-  content: [],
-  selected: null,
+Gallery.PhotosController = SC.ArrayProxy.create({
+  contentBinding: "Gallery.PhotosetsController.selected.photos",
   page: 0,
-  per_page: 7,
+  per_page: 4,
   current_page: [],
 
   next_page: function() {
@@ -26,8 +26,7 @@ Gallery.PhotosetsController = SC.ArrayProxy.create({
     return Math.ceil(this.get("length") / this.get("per_page")) - 1;
   }.property(),
 
-  select: function(photoset) {
-    photoset.fetchPhotos();
-    this.set("selected", photoset);
-  }
+  _reset_page: function() {
+    this.set("page", 0);
+  }.observes("content")
 });

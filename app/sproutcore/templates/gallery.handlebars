@@ -6,6 +6,11 @@
 <script type="text/x-handlebars" data-template-name="photoset">
   <div id="title">{{photoset.title}}</div>
   <div id="description">{{photoset.description}}</div>
+  {{#collection contentBinding="Gallery.PhotosController.current_page"}}
+    <img {{bindAttr src="content.thumbnailUrl"}} />
+  {{/collection}}
+  {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"}}Previous{{/view}}
+  {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"}}Next{{/view}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="selection">

@@ -15,6 +15,14 @@ class PhotosetsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.json do
+        render :json => {:photos => [
+          {:url => "", :thumbnailUrl => "http://farm7.static.flickr.com/6040/6278915164_7c1b91d40f_s.jpg"},
+          {:url => "", :thumbnailUrl => "http://farm7.static.flickr.com/6040/6278915164_7c1b91d40f_s.jpg"}
+        ]}
+      end
+    end
   end
 
   private
