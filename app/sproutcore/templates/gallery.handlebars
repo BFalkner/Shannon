@@ -19,9 +19,9 @@
       <div class="page-buttons">
         {{log Gallery.PhotosController.has_previous_page}}
         {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"
-          attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_previous_page"}}Previous{{/view}}
+          attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_previous_page"}}&lt;--{{/view}}
         {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"
-          attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_next_page"}}Next{{/view}}
+          attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_next_page"}}--&gt;{{/view}}
       </div>
     {{/if}}
   </div>
@@ -29,10 +29,10 @@
 
 <script type="text/x-handlebars" data-template-name="selection">
   {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosetsController" class="previous"
-    attributeBindings="disabled" disabledBinding="Gallery.PhotosetsController.has_no_previous_page"}}Previous{{/view}}
+    attributeBindings="disabled" disabledBinding="Gallery.PhotosetsController.has_no_previous_page"}}&lt;--{{/view}}
   {{collection contentBinding="photosets" itemViewClass="Gallery.PhotosetSelectView" itemClass="photoset-thumbnail"}}
   {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosetsController" class="next"
-    attributeBindings="disabled" disabledBinding="Gallery.PhotosetsController.has_no_next_page"}}Next{{/view}}
+    attributeBindings="disabled" disabledBinding="Gallery.PhotosetsController.has_no_next_page"}}--&gt;{{/view}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="photoset-select">
