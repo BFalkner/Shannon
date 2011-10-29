@@ -18,7 +18,8 @@
 .photoset-view
   @include column(34, true)
   @include prepend(3)
-  min-height: 550px
+  margin-top: 10px
+  min-height: 520px
   .photoset-info
     @include column(12)
     @include append(1)
@@ -35,8 +36,11 @@
       &.last
         @include last
     .page-buttons
+      @include column(19, true)
       @include prepend(1)
-      clear: both
+      @include append(1)
+      margin-top: 10px
+      text-align: center
 
 .selection-view
   @include column(40, true)
