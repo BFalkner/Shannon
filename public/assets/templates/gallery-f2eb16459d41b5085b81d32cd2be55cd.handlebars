@@ -1,0 +1,32 @@
+<script type="text/x-handlebars">
+  <div class="gallery">
+    {{view Gallery.PhotosetView photosetBinding="Gallery.PhotosetsController.selected" class="photoset-view"}}
+    {{view Gallery.SelectionView photosetsBinding="Gallery.PhotosetsController.current_page" class="selection-view"}}
+  </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="photoset">
+  <div class="photoset-info">
+    <div id="title">{{photoset.title}}</div>
+    <div id="description">{{photoset.description}}</div>
+  </div>
+  <div class="photo-thumbnails-container">
+    {{#collection contentBinding="Gallery.PhotosController.current_page" itemClass="photo-thumbnail"}}
+      <img {{bindAttr src="content.thumbnailUrl"}} />
+    {{/collection}}
+    <div class="page-buttons">
+      {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"}}Previous{{/view}}
+      {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"}}Next{{/view}}
+    </div>
+  </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="selection">
+  {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosetsController"}}Previous{{/view}}
+  {{collection contentBinding="photosets" itemViewClass="Gallery.PhotosetSelectView" itemClass="photoset-thumbnail"}}
+  {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosetsController"}}Next{{/view}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="photoset-select">
+  <img {{bindAttr src="thumbnailUrl"}} />
+</script>
