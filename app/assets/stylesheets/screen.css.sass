@@ -16,29 +16,33 @@
   @include container
 
 .photoset-view
-  @include column(20, true)
-  @include prepend(2)
+  @include column(34, true)
+  @include prepend(3)
   min-height: 550px
   .photoset-info
-    @include column(5)
+    @include column(12)
     @include append(1)
     height: 100%
     .title
       font-weight: bold
       font-size: $blueprint-font-size + 2
   .photo-thumbnails-container
-    @include column(13)
+    @include column(21, true)
     .photo-thumbnail
-      @include column(2)
+      @include column(3)
       height: 75px
       padding-bottom: 10px
+      &.last
+        @include last
     .page-buttons
+      @include prepend(1)
       clear: both
 
 .selection-view
-  @include prepend(1)
-  @include column(22, true)
+  @include column(40, true)
   .photoset-thumbnail
-    @include column(2)
+    @include column(3)
   button
-    @include column(1)
+    @include column(2)
+    &.next
+      @include last

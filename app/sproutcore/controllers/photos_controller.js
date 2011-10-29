@@ -3,7 +3,7 @@
 Gallery.PhotosController = SC.ArrayProxy.create({
   contentBinding: "Gallery.PhotosetsController.selected.photos",
   page: 0,
-  per_page: 36,
+  per_page: 35,
   current_page: [],
 
   next_page: function() {

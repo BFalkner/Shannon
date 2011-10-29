@@ -11,7 +11,8 @@
     <div class="description">{{photoset.description}}</div>
   </div>
   <div class="photo-thumbnails-container">
-    {{#collection contentBinding="Gallery.PhotosController.current_page" itemClass="photo-thumbnail"}}
+    {{#collection contentBinding="Gallery.PhotosController.current_page" itemViewClass="Gallery.PhotoView"
+        itemClass="photo-thumbnail"}}
       <img {{bindAttr src="content.thumbnailUrl"}} />
     {{/collection}}
     {{#if photoset}}
@@ -24,9 +25,9 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="selection">
-  {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosetsController"}}Previous{{/view}}
+  {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosetsController" class="previous"}}Previous{{/view}}
   {{collection contentBinding="photosets" itemViewClass="Gallery.PhotosetSelectView" itemClass="photoset-thumbnail"}}
-  {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosetsController"}}Next{{/view}}
+  {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosetsController" class="next"}}Next{{/view}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="photoset-select">
