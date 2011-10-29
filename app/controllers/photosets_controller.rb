@@ -19,9 +19,9 @@ class PhotosetsController < ApplicationController
       format.json do
         render :json => {
             :id => params[:id],
-            :photos => (flickr.photosets.getPhotos(:photoset_id => params[:id], :extras => "url_s,url_o")["photo"]
+            :photos => (flickr.photosets.getPhotos(:photoset_id => params[:id], :extras => "url_sq,url_o")["photo"]
                           .map do |photo|
-              {:url => photo["url_o"], :thumbnail_url => photo["url_s"]}
+              {:url => photo["url_o"], :thumbnail_url => photo["url_sq"]}
             end)}
       end
     end
