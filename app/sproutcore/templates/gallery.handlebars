@@ -12,22 +12,27 @@
   </div>
   <div class="photo-thumbnails-container">
     {{#collection contentBinding="Gallery.PhotosController.current_page" itemViewClass="Gallery.PhotoView"
-        itemClass="photo-thumbnail"}}
+      itemClass="photo-thumbnail"}}
       <img {{bindAttr src="content.thumbnailUrl"}} />
     {{/collection}}
     {{#if photoset}}
       <div class="page-buttons">
-        {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"}}Previous{{/view}}
-        {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"}}Next{{/view}}
+        {{log Gallery.PhotosController.has_previous_page}}
+        {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"
+          attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_previous_page"}}Previous{{/view}}
+        {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"
+          attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_next_page"}}Next{{/view}}
       </div>
     {{/if}}
   </div>
 </script>
 
 <script type="text/x-handlebars" data-template-name="selection">
-  {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosetsController" class="previous"}}Previous{{/view}}
+  {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosetsController" class="previous"
+    attributeBindings="disabled" disabledBinding="Gallery.PhotosetsController.has_no_previous_page"}}Previous{{/view}}
   {{collection contentBinding="photosets" itemViewClass="Gallery.PhotosetSelectView" itemClass="photoset-thumbnail"}}
-  {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosetsController" class="next"}}Next{{/view}}
+  {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosetsController" class="next"
+    attributeBindings="disabled" disabledBinding="Gallery.PhotosetsController.has_no_next_page"}}Next{{/view}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="photoset-select">
