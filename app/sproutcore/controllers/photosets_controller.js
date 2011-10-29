@@ -3,7 +3,7 @@ Gallery.PhotosetsController = SC.ArrayProxy.create({
   content: [],
   selected: null,
   page: 0,
-  per_page: 7,
+  per_page: 9,
   current_page: [],
 
   next_page: function() {

@@ -11,3 +11,29 @@
 @import "partials/page"
 @import "partials/form"
 @import "partials/two_col"
+
+.gallery
+  @include container
+
+.photoset-view
+  @include column(20, true)
+  @include prepend(2)
+  height: 550px
+  .photoset-info
+    @include column(7)
+  .photo-thumbnails-container
+    @include column(11)
+    .photo-thumbnail
+      @include column(5)
+      height: 240px
+      padding-bottom: 10px
+    .page-buttons
+      clear: both
+
+.selection-view
+  @include prepend(1)
+  @include column(22, true)
+  .photoset-thumbnail
+    @include column(2)
+  button
+    @include column(1)
