@@ -4,9 +4,9 @@ jquery-ui.min.js: jquery-ui.min-a125f4a7d0e7b623924874ed100e3ebd.js
 jquery.min.js: jquery.min-bfc8890cd08eb0a368462df9c34f82b1.js
 sproutcore-2.0.beta.3.js: sproutcore-2.0.beta.3-2bc4670ee15b712f25301f658f715c70.js
 sproutcore-2.0.beta.3.min.js: sproutcore-2.0.beta.3.min-cd8f4f5371d05b45aa5b5f946c5be138.js
-templates/gallery.handlebars: templates/gallery-f2eb16459d41b5085b81d32cd2be55cd.handlebars
+templates/gallery.handlebars: templates/gallery-878f2028729c5b9e3a27d2caf8f81b5c.handlebars
 application.js: application-838a202d71c9cb217780c4a2ef4e774c.js
 app.js: app-f7426f3a0ac81222d89ff4d011a869b1.js
-screen.css: screen-93bce4c87c45d62f2bcf8341c6492dea.css
+screen.css: screen-9dce6c48aea3037c930e768f49e20a7b.css
 print.css: print-09ef929f86dd011379a06a615b958545.css
 ie.css: ie-697b4100b3d718d44411d727dfc98a6d.css

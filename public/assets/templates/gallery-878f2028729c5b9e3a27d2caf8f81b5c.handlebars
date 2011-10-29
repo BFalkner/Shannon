@@ -14,10 +14,12 @@
     {{#collection contentBinding="Gallery.PhotosController.current_page" itemClass="photo-thumbnail"}}
       <img {{bindAttr src="content.thumbnailUrl"}} />
     {{/collection}}
-    <div class="page-buttons">
-      {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"}}Previous{{/view}}
-      {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"}}Next{{/view}}
-    </div>
+    {{#if photoset}}
+      <div class="page-buttons">
+        {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"}}Previous{{/view}}
+        {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"}}Next{{/view}}
+      </div>
+    {{/if}}
   </div>
 </script>
 
