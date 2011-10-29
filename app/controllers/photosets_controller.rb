@@ -8,7 +8,7 @@ class PhotosetsController < ApplicationController
       format.json do
         render :json => (flickr.photosets.getList(UID).map do |photoset|
           Hash[photoset].keep_if {|key, value| ["id", "title", "description"].include? key }
-          .merge("thumbnailUrl" => load_thumbnail(photoset["primary"]))
+          .merge("thumbnailUrl" => load_thumbnail(photoset))
         end)
       end
     end
@@ -28,8 +28,7 @@ class PhotosetsController < ApplicationController
   end
 
   private
-  def load_thumbnail photo_id
-    flickr.photos.getSizes(:photo_id => photo_id)
-    .find{|size| size["label"] == "Square"}["source"]
+  def load_thumbnail photoset
+    "http://farm#{photoset["farm"]}.static.flickr.com/#{photoset["server"]}/#{photoset["primary"]}_#{photoset["secret"]}_s.jpg"
   end
 end
