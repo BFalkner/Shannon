@@ -1,7 +1,7 @@
 class PhotosetsController < ApplicationController
   UID = {:user_id => YAML.load_file("#{Rails.root}/config/flickr.yml")['flickr']['user_id']}
 
-  caches_page :index, :expires_in => 1.hour
+  caches_page [:index, :show], :expires_in => 1.hour
   
   def index
     respond_to do |format|
