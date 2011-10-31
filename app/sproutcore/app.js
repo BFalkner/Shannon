@@ -12,9 +12,7 @@ var Gallery = SC.Application.create({
 
   fetchPhotosets: function(){
     Gallery.Photoset.fetch(function(photosets) {
-      Gallery.PhotosetsController.beginPropertyChanges();
       Gallery.PhotosetsController.pushObjects(photosets);
-      Gallery.PhotosetsController.endPropertyChanges();
     });
   }
 });
