@@ -6,25 +6,28 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="photoset">
-  <div class="photoset-info">
-    <div class="title">{{photoset.title}}</div>
-    <div class="description">{{photoset.description}}</div>
-  </div>
-  <div class="photo-thumbnails-container">
-    {{#collection contentBinding="Gallery.PhotosController.current_page" itemViewClass="Gallery.PhotoView"
-      itemClass="photo-thumbnail"}}
-      <img {{bindAttr src="content.thumbnailUrl"}} />
-    {{/collection}}
-    {{#if photoset}}
+  {{#if photoset}}
+    <div class="photoset-info">
+      <div class="title">{{photoset.title}}</div>
+      <div class="description">{{photoset.description}}</div>
+    </div>
+    <div class="photo-thumbnails-container">
+      {{#if photoset.photos}}
+        {{#collection contentBinding="Gallery.PhotosController.current_page" itemViewClass="Gallery.PhotoView"
+            itemClass="photo-thumbnail" class="thumbnails"}}
+          <img {{bindAttr src="content.thumbnailUrl"}} />
+        {{/collection}}
+      {{else}}
+        <div class="thumbnails">Loading...</div>
+      {{/if}}
       <div class="page-buttons">
-        {{log Gallery.PhotosController.has_previous_page}}
         {{#view SC.Button action="previous_page" targetBinding="Gallery.PhotosController"
           attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_previous_page"}}&lt;--{{/view}}
         {{#view SC.Button action="next_page" targetBinding="Gallery.PhotosController"
           attributeBindings="disabled" disabledBinding="Gallery.PhotosController.has_no_next_page"}}--&gt;{{/view}}
       </div>
-    {{/if}}
-  </div>
+    </div>
+  {{/if}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="selection">
