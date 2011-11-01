@@ -11,6 +11,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <%= link_to "Gallery", gallery_path %>
+    <%= link_to "About", about_path %>
+    <%= link_to "Supplement", supplement_path %>
+  </nav>
 
 <%= yield %>
 

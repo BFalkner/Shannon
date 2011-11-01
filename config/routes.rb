@@ -1,5 +1,9 @@
 Shannon::Application.routes.draw do
-  get "/" => "gallery#index"
+  get "/" => "static#home"
+  get "about" => "static#about"
+  get "supplement" => "static#supplement"
+
+  get "/gallery" => "gallery#index"
 
   resources :photosets, :only => [:index, :show]
 
